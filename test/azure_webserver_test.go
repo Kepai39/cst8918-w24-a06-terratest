@@ -31,8 +31,7 @@ func TestAzureLinuxVMCreation(t *testing.T) {
 	vmName := terraform.Output(t, terraformOptions, "vm_name")
 	resourceGroupName := terraform.Output(t, terraformOptions, "resource_group_name")
 
-	// GetVirtualMachineNics gets a list of Network Interface names for a specifcied Azure Virtual Machine.
-	// This function would fail the test if there is an error.
+	//get NICs
 	nic := azure.GetVirtualMachineNics(t, vmName, resourceGroupName, subscriptionID)
 
 	//get the virtual machine image
