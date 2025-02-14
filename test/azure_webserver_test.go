@@ -31,6 +31,14 @@ func TestAzureLinuxVMCreation(t *testing.T) {
 	vmName := terraform.Output(t, terraformOptions, "vm_name")
 	resourceGroupName := terraform.Output(t, terraformOptions, "resource_group_name")
 
+	// GetVirtualMachineNics gets a list of Network Interface names for a specifcied Azure Virtual Machine.
+	// This function would fail the test if there is an error.
+	nic := azure.GetVirtualMachineNics(t, vmName, resourceGroupName, subscriptionID)
+
 	// Confirm VM exists
 	assert.True(t, azure.VirtualMachineExists(t, vmName, resourceGroupName, subscriptionID))
+	//confirm NIC exists 
+	assert.NotNil(t, nic)
+	//confirm nic connection to vm
+	assert.True(t, len(nic) == 1, "There is one NIC attached to VM")
 }
