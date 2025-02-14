@@ -44,17 +44,17 @@ func TestAzureLinuxVMCreation(t *testing.T) {
 	//confirm NIC exists 
 	assert.NotNil(t, nic)
 	//confirm nic connection to vm
-	assert.True(t, len(nic) == 1, "There should be one NIC attached to VM")
+	assert.True(t, len(nic) == 1, "There needs only one NIC attached to VM")
 
 
 
 	
 	//confirm that the image exists
-	assert.NotNil(t, vmImage, "VM image should be found.")
-	//confirm that the it is running an Ubuntu version
-	assert.Equal(t, "Canonical", vmImage.Publisher, "VM image publisher should be 'Canonical'")
-	assert.Equal(t, "0001-com-ubuntu-server-jammy", vmImage.Offer, "VM image offer should be '0001-com-ubuntu-server-jammy'")
-	assert.Equal(t, "22_04-lts-gen2", vmImage.SKU, "VM image SKU should be '22_04-lts-gen2'")
+	assert.NotNil(t, vmImage, "there needs to be VM image.")
+	//confirm that the VM  is running an Ubuntu version
+	assert.Equal(t, "Canonical", vmImage.Publisher, "VM image publisher needs to be 'Canonical'")
+	assert.Equal(t, "0001-com-ubuntu-server-jammy", vmImage.Offer, "VM image offer needs to be '0001-com-ubuntu-server-jammy'")
+	assert.Equal(t, "22_04-lts-gen2", vmImage.SKU, "VM image SKU needs to be '22_04-lts-gen2'")
 
 
 }
