@@ -215,3 +215,13 @@ terraform destroy
 ```
 
 > Use your college username when prompted for the _labelPrefix_ variable.
+
+
+
+# Terratest Lab A06 Screenshot of completion:
+![Picture of the sucessful test](<Screenshot 2025-02-14 at 6.27.58 PM.png>)
+
+
+
+## Possible Issues Encountered:
+- When doing go test -v azure_webserver_test.go, the destroying of the resources may time out and cause error.  If that happens just re-enter the command go test -v azure_webserver_test.go
